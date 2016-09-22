@@ -35,6 +35,9 @@
       echo "<br>";
       $Jim->learn_ability("Get irritable");
       echo "Jim has gained the ability to ".$Jim->do_action(0);
+
+      $Pheonix = new Pheonix("Pheonix");
+      $Pheonix->anylizeMonster($Jim);
     ?>
   </body>
 </html>

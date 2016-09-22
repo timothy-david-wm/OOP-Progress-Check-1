@@ -1,5 +1,5 @@
 <?php
-  class NPC {
+  Abstract class NPC {
     public $Name;
     public $Health;
     private $Max_Health;
@@ -39,5 +39,39 @@
     public $Army;
 
     public  function __construct($name, $army){$this->Name = $name; $this->Army = $army;}
+  }
+
+  Abstract Class Monster extends NPC{
+    private $monsterType = ["Generic"];
+    private $basicLoreDifficulty = 0;
+    public $basicLore; //Tell basic facts about the monster
+    private $normalLoreDifficulty = 5;
+    public $normalLore; //Tell normal facts about the monster
+    private $exspertLoreDifficulty = 10;
+    private $exspertLore; //Tell exspert facts about the monster
+    public function  anylizeMonster($charicter){
+        $Knowlage = rand(0, 10);
+
+    	  if($Knowlage <= $this->basicLoreDifficulty){
+    		      echo "This charicter no idea what it is";	}
+    	  if($Knowlage >= $this->basicLoreDifficulty){
+    		      echo $this->basicLore;	  }
+    	  if($Knowlage >= $this->exspertLoreDifficulty){
+    		     echo $this->normalLore;    }
+    	  if($Knowlage >= $this->exspertLoreDifficulty){
+    	      echo $this->exspertLore;    }
+      }
+  }
+
+  Class pheonix extends Monster{
+    private $monsterType = ["fireElemental", "bird", "Immortal"];
+    public $basicLoreDifficulty = 1;
+    public $basicLore = "The pheonix; a firebird";
+    private $normalLoreDifficulty = 5;
+    public $normalLore = "A beast that is spawned by raising from the ashes of its predicessor";
+    private $exspertLoreDifficulty = 10;
+    public $exspertLore = "It's said to live for thousands of years, and only one exists at a time, when killed it will rise again the next day";
+    public  $Apearance = "absurdly large red bird with a long neck and brown belly";
+    private $Abilities = ["breathFire", "fly"];
   }
  ?>
